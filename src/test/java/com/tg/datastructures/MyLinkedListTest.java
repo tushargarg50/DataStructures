@@ -11,7 +11,7 @@ public class MyLinkedListTest {
     @Test
     public void put() {
         for (int i = 0; i < 15; i++) {
-            integerMyLinkedList.put(i);
+            integerMyLinkedList.insertLast(i);
         }
         assertEquals(15, integerMyLinkedList.size());
     }
