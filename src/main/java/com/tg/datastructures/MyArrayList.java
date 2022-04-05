@@ -2,7 +2,9 @@ package com.tg.datastructures;
 
 import com.tg.datastructures.common.AbstractCollection;
 
-public class MyArrayList<T> extends AbstractCollection {
+import java.util.Iterator;
+
+public class MyArrayList<T> extends AbstractCollection implements Iterable {
 
     private static final Integer INITIAL_CAPACITY = 10;
     private static final Integer INCREMENT_FACTOR = 2;
@@ -84,4 +86,23 @@ public class MyArrayList<T> extends AbstractCollection {
         }
         return index;
     }
+
+    @Override
+    public Iterator iterator() {
+        return new Iterator<T>() {
+            int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return array[index] != null && index < size();
+            }
+
+            @Override
+            public T next() {
+                return array[index++];
+            }
+        };
+    }
+
+
 }

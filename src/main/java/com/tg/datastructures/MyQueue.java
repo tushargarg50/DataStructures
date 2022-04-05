@@ -1,6 +1,8 @@
 package com.tg.datastructures;
 
-public class MyQueue<T> {
+import java.util.Iterator;
+
+public class MyQueue<T> implements Iterable<T> {
 
     private final MyLinkedList<T> list;
 
@@ -18,5 +20,10 @@ public class MyQueue<T> {
 
     T remove() {
         return list.removeFirst();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return list.iterator();
     }
 }

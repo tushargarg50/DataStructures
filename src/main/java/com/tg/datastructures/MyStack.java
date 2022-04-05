@@ -1,6 +1,8 @@
 package com.tg.datastructures;
 
-public class MyStack<T> {
+import java.util.Iterator;
+
+public class MyStack<T> implements Iterable<T> {
 
     private final MyLinkedList<T> myLinkedList;
 
@@ -25,4 +27,8 @@ public class MyStack<T> {
     }
 
 
+    @Override
+    public Iterator<T> iterator() {
+        return myLinkedList.iterator();
+    }
 }

@@ -10,9 +10,12 @@ public class MyLinkedListTest {
 
     @Test
     public void put() {
-        for (int i = 0; i < 15; i++) {
+        for (int i = 1; i < 15; i++) {
             integerMyLinkedList.insertLast(i);
         }
-        assertEquals(15, integerMyLinkedList.size());
+        assertEquals(14, integerMyLinkedList.size());
+        integerMyLinkedList.removeFirst();
+        assertEquals(13, integerMyLinkedList.size());
+        integerMyLinkedList.forEach(System.out::println);
     }
 }

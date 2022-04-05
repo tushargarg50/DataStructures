@@ -2,7 +2,9 @@ package com.tg.datastructures;
 
 import com.tg.datastructures.common.AbstractCollection;
 
-public class MyLinkedList<T> extends AbstractCollection {
+import java.util.Iterator;
+
+public class MyLinkedList<T> extends AbstractCollection implements Iterable<T> {
 
     Node<T> head;
     Node<T> tail;
@@ -86,6 +88,25 @@ public class MyLinkedList<T> extends AbstractCollection {
             tail = tail.next;
         }
         setSize(size() + 1);
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            Node<T> currentNode = head;
+
+            @Override
+            public boolean hasNext() {
+                return currentNode != null;
+            }
+
+            @Override
+            public T next() {
+                T data = currentNode.data;
+                currentNode = currentNode.next;
+                return data;
+            }
+        };
     }
 
     private static class Node<T> {
