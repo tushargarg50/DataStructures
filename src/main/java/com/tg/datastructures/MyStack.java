@@ -4,7 +4,7 @@ import com.tg.datastructures.common.AbstractCollection;
 
 public class MyStack<T> extends AbstractCollection {
 
-    private MyLinkedList<T> myLinkedList;
+    private final MyLinkedList<T> myLinkedList;
 
     protected MyStack() {
         super(0);

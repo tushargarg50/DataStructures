@@ -40,7 +40,7 @@ public class MyLinkedList<T> extends AbstractCollection {
             } else {
                 head = null;
             }
-            setSize(size()-1);
+            setSize(size() - 1);
             return data;
         }
     }

@@ -2,7 +2,7 @@ package com.tg.datastructures;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class MyStackTest {
 
@@ -19,7 +19,7 @@ public class MyStackTest {
 
     @Test
     public void pop() {
-        for(int i=1; i<6;i++) {
+        for (int i = 1; i < 6; i++) {
             stack.push(i);
         }
         assertEquals(Integer.valueOf(5), stack.pop());
@@ -32,7 +32,7 @@ public class MyStackTest {
 
     @Test
     public void peek() {
-        for(int i=1; i<6;i++) {
+        for (int i = 1; i < 6; i++) {
             stack.push(i);
         }
         assertEquals(Integer.valueOf(5), stack.peek());
