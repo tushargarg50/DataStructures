@@ -62,11 +62,6 @@ public class MyLinkedList<T> extends AbstractCollection {
         if (size() == 0) {
             throw new RuntimeException("Linked List Empty!");
         } else {
-//            Node<T> currentNode = head;
-//            while (currentNode.next != null) {
-//                currentNode = currentNode.next;
-//            }
-//            return currentNode.data;
             return tail.data;
         }
     }
@@ -89,11 +84,6 @@ public class MyLinkedList<T> extends AbstractCollection {
         } else {
             tail.next = new Node<>(obj, null);
             tail = tail.next;
-//            Node currentNode = head;
-//            while (currentNode.next != null) {
-//                currentNode = currentNode.next;
-//            }
-//            currentNode.next = new Node(obj, null);
         }
         setSize(size() + 1);
     }
