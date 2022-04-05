@@ -5,14 +5,17 @@ import com.tg.datastructures.common.AbstractCollection;
 public class MyLinkedList<T> extends AbstractCollection {
 
     Node<T> head;
+    Node<T> tail;
 
     MyLinkedList() {
         super(0);
         head = null;
+        tail = null;
     }
 
     void clear() {
         head = null;
+        tail = null;
         setSize(0);
     }
 
@@ -26,6 +29,7 @@ public class MyLinkedList<T> extends AbstractCollection {
             }
             T data = currentNode.next.data;
             currentNode.next = null;
+            tail = currentNode;
             return data;
         }
     }
@@ -39,6 +43,7 @@ public class MyLinkedList<T> extends AbstractCollection {
                 head = head.next;
             } else {
                 head = null;
+                tail = null;
             }
             setSize(size() - 1);
             return data;
@@ -57,17 +62,19 @@ public class MyLinkedList<T> extends AbstractCollection {
         if (size() == 0) {
             throw new RuntimeException("Linked List Empty!");
         } else {
-            Node<T> currentNode = head;
-            while (currentNode.next != null) {
-                currentNode = currentNode.next;
-            }
-            return currentNode.data;
+//            Node<T> currentNode = head;
+//            while (currentNode.next != null) {
+//                currentNode = currentNode.next;
+//            }
+//            return currentNode.data;
+            return tail.data;
         }
     }
 
     void insertFirst(T obj) {
         if (size() == 0) {
             head = new Node<>(obj, null);
+            tail = head;
         } else {
             Node newNode = new Node(obj, head);
             head = newNode;
@@ -78,12 +85,15 @@ public class MyLinkedList<T> extends AbstractCollection {
     void insertLast(T obj) {
         if (size() == 0) {
             head = new Node<>(obj, null);
+            tail = head;
         } else {
-            Node currentNode = head;
-            while (currentNode.next != null) {
-                currentNode = currentNode.next;
-            }
-            currentNode.next = new Node(obj, null);
+            tail.next = new Node<>(obj, null);
+            tail = tail.next;
+//            Node currentNode = head;
+//            while (currentNode.next != null) {
+//                currentNode = currentNode.next;
+//            }
+//            currentNode.next = new Node(obj, null);
         }
         setSize(size() + 1);
     }
