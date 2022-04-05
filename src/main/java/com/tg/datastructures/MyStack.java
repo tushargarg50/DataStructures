@@ -1,13 +1,10 @@
 package com.tg.datastructures;
 
-import com.tg.datastructures.common.AbstractCollection;
-
-public class MyStack<T> extends AbstractCollection {
+public class MyStack<T> {
 
     private final MyLinkedList<T> myLinkedList;
 
     protected MyStack() {
-        super(0);
         myLinkedList = new MyLinkedList<>();
     }
 
@@ -23,7 +20,6 @@ public class MyStack<T> extends AbstractCollection {
         return myLinkedList.getFirst();
     }
 
-    @Override
     public int size() {
         return myLinkedList.size();
     }
