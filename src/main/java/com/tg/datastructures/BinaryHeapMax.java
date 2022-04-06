@@ -32,6 +32,14 @@ public class BinaryHeapMax {
     private final Function<Integer, Integer> leftChildValue = x -> heap[leftChildIndex.apply(x)];
     private final Function<Integer, Integer> rightChildValue = x -> heap[rightChildIndex.apply(x)];
 
+    int[] heapSort() {
+        int[] newHeap = new int[size];
+        for (int i = size - 1; i >= 0; i--) {
+            newHeap[i] = extract();
+        }
+        return newHeap;
+    }
+
     int extract() {
         if (size > 0) {
             int temp = swapAndGet(0, size - 1);
@@ -50,12 +58,14 @@ public class BinaryHeapMax {
         if (rightChildIndex.apply(index) < size) {
             rightChildVal = rightChildValue.apply(index);
         }
-        if (leftChildVal > rightChildVal && leftChildVal != -1) {
-            swapAndGet(index, leftChildIndex.apply(index));
-            heapifyDown(leftChildIndex.apply(index));
-        } else if (rightChildVal != -1) {
-            swapAndGet(index, rightChildIndex.apply(index));
-            heapifyDown(rightChildIndex.apply(index));
+        if(leftChildVal > heap[index] || rightChildVal > heap[index]) {
+            if (leftChildVal > rightChildVal && leftChildVal != -1) {
+                swapAndGet(index, leftChildIndex.apply(index));
+                heapifyDown(leftChildIndex.apply(index));
+            } else if (rightChildVal != -1) {
+                swapAndGet(index, rightChildIndex.apply(index));
+                heapifyDown(rightChildIndex.apply(index));
+            }
         }
 
     }
