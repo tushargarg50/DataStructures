@@ -18,13 +18,9 @@ public class BinaryHeapMaxTest {
         bhm.insert(29);
         bhm.insert(18);
         bhm.insert(35);
-        bhm.extract();
-        System.out.println(bhm.toString());
-        bhm.extract();
-        System.out.println(bhm.toString());
-        bhm.extract();
-        System.out.println(bhm.toString());
-        bhm.extract();
-        System.out.println(bhm.toString());
+        assertEquals(42, bhm.extract());
+        assertEquals(35, bhm.extract());
+        assertEquals(29, bhm.extract());
+        assertEquals(18, bhm.extract());
     }
 }
